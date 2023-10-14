@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import {useCallback} from 'react';
 import BottomTabNavigation from "./navigation/BottomTabNavigation"
 import Cart from './screens/Cart'
+import ProductDetail from "./screens/ProductDetail";
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -41,6 +42,11 @@ export default function App() {
        <Stack.Screen
            name="Cart"
            component={Cart}
+           options={{headerShown:false}}
+       />
+         <Stack.Screen
+           name="ProductDetails"
+           component={ProductDetail}
            options={{headerShown:false}}
        />
      </Stack.Navigator>
