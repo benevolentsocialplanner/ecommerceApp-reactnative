@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {View, Text, Image, SafeAreaView, TouchableOpacity} from "react-native";
-import {Ionicons, SimpleLineIcons} from "@expo/vector-icons";
+import {Fontisto, Ionicons, MaterialCommunityIcons, SimpleLineIcons} from "@expo/vector-icons";
 import styles from './productDetail.style'
 import {COLORS} from "../constants";
 const ProductDetail = ({navigation}) => {
@@ -64,9 +64,39 @@ const ProductDetail = ({navigation}) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View >
+                <View style={styles.descriptionWrapper}>
+                    <Text style={styles.description}>
+                        Description
+                    </Text>
+                    <Text style={styles.descText}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </Text>
 
                 </View>
+                <View style={styles.locationContainer}>
+                    <View style={styles.location}>
+                        <View style={styles.locationDetails}>
+                            <Ionicons name='locate-outline' size={24} />
+                            <Text>    YOZGAT    </Text>
+                        </View>
+                        <View style={styles.locationDetails}>
+                            <MaterialCommunityIcons name='truck-delivery-outline' size={24} />
+                            <Text>   Free shipping   </Text>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={styles.cartRow}>
+                    <TouchableOpacity onPress={() => {}} style={styles.cartBtn}>
+                        <Text style={styles.cartTitle}>
+                            BUY NOW
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {}} style={styles.addToCart}>
+                        <Fontisto name='shopping-bag' size={22} color={COLORS.lightWhite}/>
+                    </TouchableOpacity>
+                </View>
+
             </View>
         </View>
     )
