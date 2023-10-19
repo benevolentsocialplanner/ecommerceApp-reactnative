@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
+import { useRoute } from '@react-navigation/native'
 import {View, Text, Image, SafeAreaView, TouchableOpacity} from "react-native";
 import {Fontisto, Ionicons, MaterialCommunityIcons, SimpleLineIcons} from "@expo/vector-icons";
 import styles from './productDetail.style'
 import {COLORS} from "../constants";
 const ProductDetail = ({navigation}) => {
     const [count, setCount] = useState(1)
+    const route = useRoute();
+    const {item} = route.params;
+
     return (
         <View style={styles.container}>
             <View style={styles.upperRow}>
@@ -16,15 +20,15 @@ const ProductDetail = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <Image
-                source={{uri: "https://d326fntlu7tb1e.cloudfront.net/uploads/b1f6d96d-3297-4270-ba65-657dc2bc0236-fn2.jpg"}}
+                source={{uri: item.imageUrl}}
                 style={styles.image}
             />
 
             <View style={styles.details}>
                 <View style={styles.titleRow}>
-                    <Text style={styles.title}>Couch</Text>
+                    <Text style={styles.title}>{item.title}</Text>
                     <View style={styles.priceWrapper}>
-                        <Text style={styles.price}>$333.33</Text>
+                        <Text style={styles.price}>{item.price}</Text>
                     </View>
                 </View>
 
@@ -69,7 +73,7 @@ const ProductDetail = ({navigation}) => {
                         Description
                     </Text>
                     <Text style={styles.descText}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {item.description}
                     </Text>
 
                 </View>
@@ -77,7 +81,7 @@ const ProductDetail = ({navigation}) => {
                     <View style={styles.location}>
                         <View style={styles.locationDetails}>
                             <Ionicons name='locate-outline' size={24} />
-                            <Text>    YOZGAT    </Text>
+                            <Text>{item.product_location}</Text>
                         </View>
                         <View style={styles.locationDetails}>
                             <MaterialCommunityIcons name='truck-delivery-outline' size={24} />
